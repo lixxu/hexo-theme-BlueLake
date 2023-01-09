@@ -18,8 +18,22 @@
       <%- partial('post/comments-count') %>
     </div>
     <div class="e-content article-entry" itemprop="articleBody">
-      <% if (post.excerpt && index){ %>
-        <%- post.excerpt %>
+      <% var show_all_content = true %>
+      <% if (index){ %>
+        <% if (post.excerpt){ %>
+          <% show_all_content = false %>
+          <%- post.excerpt %>
+        <% } else if (theme.auto_excerpt.enable && index) { %>
+          <% var br_pos = 0 %>
+          <% for (var br_count = 0; br_count < theme.auto_excerpt.lines; br_count++) { %>
+            <% br_pos = post.content.indexOf('\n',br_pos + 1) %>
+            <% if(br_pos < 0) { break } %>
+          <% } %>
+          <% if(br_pos > 0) { %>
+            <% show_all_content = false %>
+            <p><%- post.content.substring(0, br_pos + 1) %><p>
+          <% } %>
+        <% } %>
       <% } else { %>
         <%- post.content %>
         <% if (!index){ %>
@@ -36,7 +50,7 @@
       <% } %>
     </div>
     <footer class="article-footer">
-      <% if (post.excerpt && index && theme.excerpt_link){ %>
+      <% if (!show_all_content || (post.excerpt && index && theme.excerpt_link)){ %>
         <%- partial('post/tag') %>
         <p class="article-more-link">
           <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
@@ -51,7 +65,7 @@
       <% if (!index){ %>
         <%- partial('post/nav') %>
       <% } %>
-      <% if (!index && post.comments){ %>
+      <% if (!index){ %>
         <%- partial('post/comments') %>
       <% } %>
     </footer>

@@ -22,3 +22,14 @@
 <% if (theme.changyan.enable && theme.changyan.appid && theme.changyan.appkey){ %>
   <div id="comments"><div id="SOHUCS" sid="<%= page.path %>"></div></div>
 <% } %>
+<% if (theme.comment.utterances.enable && theme.comment.utterances.repo && theme.comment.utterances.issue_term){ %>
+  <div id="comments" class="comments">
+    <script src="https://utteranc.es/client.js"
+        repo="<%= theme.comment.utterances.repo %>"
+        issue-term="<%= theme.comment.utterances.issue_term %>"
+        theme="<%= theme.comment.utterances.theme %>"
+        crossorigin="anonymous"
+        async>
+    </script>
+  </div>
+<% } %>

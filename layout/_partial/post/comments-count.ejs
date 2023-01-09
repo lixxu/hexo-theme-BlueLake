@@ -7,6 +7,9 @@
     <% if (theme.comment.disqus){ %>
       <i class="disqus-comment-count" data-disqus-identifier="<%- url_for(post.path) %>"></i>
     <% } %>
+    <% if (theme.comment.utterances){ %>
+      <a href="<%- url_for(post.path) %>" id="utterances_count_unit"></a>
+    <% } %>
     <% if (theme.comment.uyan){ %>
       <a href="<%- url_for(post.path) %>" id="uyan_count_unit"></a>
     <% } %>

@@ -27,8 +27,7 @@ menu:
     icon: fa-rss
 
 # RSS & Sitemap plugins
-Plugins:
-  hexo-generator-feed
+Plugins: hexo-generator-feed
   hexo-generator-sitemap
 
 # Sitemap
@@ -36,7 +35,13 @@ sitemap:
   path: sitemap.xml
 
 # Content
-excerpt_link: Read More
+excerpt_link: 阅读更多
+excerpt:
+  depth: 10
+  excerpt_excludes: []
+  more_excludes: []
+  hideWholePostExcerpts: true
+
 fancybox: true
 copyright:
   enable: true # display article copyright information, true/false.
@@ -44,28 +49,28 @@ copyright:
 
 # Date_formats
 date_formats:
-  post: 'YYYY年MM月DD日'
-  idStr: 'YYYYMMDDHHmmss'
+  post: "YYYY年MM月DD日"
+  idStr: "YYYYMMDDHHmmss"
 
 # Sidebar
-sidebar: right  # right/left/bottom
+sidebar: right # right/left/bottom
 widgets:
   - recent_posts
   - tagcloud
   - category
   - archive
   - tag
-  - links
+  # - links
 
 # Widget behavior
-archive_type: 'yearly' # 'yearly','monthly'
-archive_format: 'YYYY年' # 'YYYY年','YYYY年MM月'
+archive_type: "yearly" # 'yearly','monthly'
+archive_format: "YYYY年" # 'YYYY年','YYYY年MM月'
 show_count: true
 recent_posts_limits: 5
 
 # Toc
 toc:
-  enable: true
+  enable: false
   list_number: false
 
 # Article share
@@ -74,48 +79,48 @@ share:
   baidu_share: false
 
 # Miscellaneous
-busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
+busuanzi: false ## If you want to use Busuanzi page views please set the value to true.
 baidu_analytics:
 google_analytics:
 gauges_analytics:
 
 # MathJax support
 mathjax:
-  enable: false  # true/false.
+  enable: false # true/false.
   cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
 
 # Reward
 reward:
-  enable: false  # true/false 是否开启 打赏功能
-  wechat: '/css/images/wechat-pay.jpg'
-  alipay: '/css/images/alipay-pay.jpg'
-  buttonTxt: '打赏'
+  enable: false # true/false 是否开启 打赏功能
+  wechat: "/css/images/wechat-pay.jpg"
+  alipay: "/css/images/alipay-pay.jpg"
+  buttonTxt: "打赏"
   title: "“感谢你的支持，我会继续努力！”"
   content: "扫码打赏，感谢支持"
 
 # About page
 about:
-  photo_url: ## Your photo e.g. /themeauthor.jpg
+  photo_url: https://avatars2.githubusercontent.com/u/264487?s=256&amp;u=04c0bc38daccfed43fc513efe5ac8440891e6029&amp;v=4 ## Your photo e.g. /themeauthor.jpg
   items:
-  - label: email
-    url: ## Your email with mailto: e.g.  mailto:chaoles@foxmail.com
-    title: ## Your email e.g.  chaoles@foxmail.com
-  - label: github
-    url: ## Your github'url e.g.  https://github.com/chaooo
-    title: ## Your github'name e.g.  chaooo
-  - label: weibo
-    url: ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
-    title: ## Your weibo's name e.g.  秋过冬漫长
+    - label: email
+      url: mailto:xuzenglin@gmail.com ## Your email with mailto: e.g.  mailto:chaoles@foxmail.com
+      title: xuzenglin@gmail.com ## Your email e.g.  chaoles@foxmail.com
+    - label: github
+      url: https://github.com/lixxu ## Your github'url e.g.  https://github.com/chaooo
+      title: lix ## Your github'name e.g.  chaooo
+    # - label: weibo
+    #   url: ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
+    #   title: ## Your weibo's name e.g.  秋过冬漫长
 
 # Gitalk comment
 gitalk:
-  enable: false
-  owner: ## Your GitHub ID, e.g. username
-  repo: ## The repository to store your comments, make sure you're the repo's owner, e.g. gitalk.github.io
+  enable: true
+  owner: lixxu ## Your GitHub ID, e.g. username
+  repo: lixxu.github.io ## The repository to store your comments, make sure you're the repo's owner, e.g. gitalk.github.io
   client_id: ## GitHub client ID, e.g. 75752dafe7907a897619
   client_secret: ## GitHub client secret, e.g. ec2fb9054972c891289640354993b662f4cccc50
   admin: ## Github repo owner and collaborators, only these guys can initialize github issues.
-  language: 'zh-CN' ## Language
+  language: "zh-CN" ## Language
   pagerDirection: last # Comment sorting direction, available values are last and first.
 
 # giteement评论（基于Gitee issues）【！！！慎用，Gitee接口调用时好像有次数限制，导致后面无法调试，若要使用请自行研究】
@@ -152,6 +157,16 @@ comment:
   livere: ## 来必力(data-uid)
   uyan: ## 友言(uid)
   cloudTie: ## 网易云跟帖(productKey)
+  utterances:
+    enable: true
+    repo: lixxu/lixxu.github.io
+    issue_term: pathname # pathname, url, title, og:title [ISSUE NUMBER] or [SPECIFIC TERM]
+    theme: github-light
+
+
+auto_excerpt:
+  enable: true
+  lines: 5
 
 # Friend Links widget. Empty links will hide widget.
 links:
